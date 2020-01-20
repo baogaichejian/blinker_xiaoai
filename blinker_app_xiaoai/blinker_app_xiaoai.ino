@@ -3,17 +3,17 @@
 
 #include <Blinker.h>
 
-char auth[] = "********";
-char ssid[] = "********";
-char pswd[] = "********";
-BlinkerButton Button1("btn-abc");     //定义按钮数据
+char auth[] = "********";  //设备key
+char ssid[] = "********";  //路由器wifi ssid
+char pswd[] = "********";  //路由器wifi 密码
+BlinkerButton Button1("btn-abc");     //定义按钮键名
 bool oState = false;
 int counter = 0;
 void miotPowerState(const String & state)
 {
     BLINKER_LOG("need set power state: ", state);
 
-    if (state == BLINKER_CMD_ON) {     //小爱同学控制开命令
+    if (state == BLINKER_CMD_ON) {     //小爱同学控制开命令 此处修改为点动模式，适合按钮操作，
         digitalWrite(0, LOW);
         delay(200);
         digitalWrite(0, HIGH);
@@ -23,7 +23,7 @@ void miotPowerState(const String & state)
 
         oState = true;
     }
-    else if (state == BLINKER_CMD_OFF) {   //小爱同学控制关命令
+    else if (state == BLINKER_CMD_OFF) {   //小爱同学控制关命令 此处修改为点动模式，适合按钮操作，
         digitalWrite(0,LOW);
         delay(200);
         digitalWrite(0, HIGH);
